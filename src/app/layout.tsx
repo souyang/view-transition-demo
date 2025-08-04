@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
-  themeColor: "#3B82F6",
-  colorScheme: "light dark",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#3B82F6",
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
