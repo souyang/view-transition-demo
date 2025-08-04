@@ -16,7 +16,7 @@ export default function ProjectCard({
   technologies, 
   gradient, 
   delay, 
-  isVisible 
+  isVisible, 
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -24,15 +24,15 @@ export default function ProjectCard({
     <div
       className={`transform transition-all duration-700 ease-out ${
         isVisible 
-          ? 'opacity-100 translate-y-0 scale-100' 
-          : 'opacity-0 translate-y-8 scale-95'
-      } ${isHovered ? 'scale-105 shadow-2xl' : 'scale-100 shadow-xl'}`}
+          ? "opacity-100 translate-y-0 scale-100" 
+          : "opacity-0 translate-y-8 scale-95"
+      } ${isHovered ? "scale-105 shadow-2xl" : "scale-100 shadow-xl"}`}
       style={{ transitionDelay: `${delay}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className={`bg-gradient-to-br ${gradient} p-6 rounded-xl text-white h-full cursor-pointer transition-all duration-300 ${
-        isHovered ? 'brightness-110' : 'brightness-100'
+        isHovered ? "brightness-110" : "brightness-100"
       }`}>
         <h3 className="text-xl font-semibold mb-3 transition-all duration-300 ${
           isHovered ? 'scale-105' : 'scale-100'
@@ -56,7 +56,7 @@ export default function ProjectCard({
           ))}
         </div>
         <div className={`mt-4 h-1 bg-white/30 rounded-full transition-all duration-500 ${
-          isHovered ? 'w-full' : 'w-0'
+          isHovered ? "w-full" : "w-0"
         }`} />
       </div>
     </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import FeatureCard from "./components/FeatureCard";
@@ -12,20 +11,20 @@ const features = [
     title: "Smooth Transitions",
     description: "Elements smoothly animate between pages",
     gradient: "from-blue-500 to-blue-600",
-    icon: "✨"
+    icon: "✨",
   },
   {
     title: "Performance",
     description: "Hardware-accelerated animations",
     gradient: "from-purple-500 to-purple-600",
-    icon: "⚡"
+    icon: "⚡",
   },
   {
     title: "Modern UX",
     description: "Enhanced user experience",
     gradient: "from-green-500 to-green-600",
-    icon: "🎨"
-  }
+    icon: "🎨",
+  },
 ];
 
 const ctaButtons = [
@@ -33,29 +32,27 @@ const ctaButtons = [
     label: "Panel Transitions",
     path: "/panel-transition",
     color: "bg-blue-600",
-    hoverColor: "bg-blue-700"
+    hoverColor: "bg-blue-700",
   },
   {
     label: "Card Animations",
     path: "/card-animation",
     color: "bg-purple-600",
-    hoverColor: "bg-purple-700"
+    hoverColor: "bg-purple-700",
   },
   {
     label: "List Reordering",
     path: "/list-reorder",
     color: "bg-green-600",
-    hoverColor: "bg-green-700"
-  }
+    hoverColor: "bg-green-700",
+  },
 ];
 
 export default function HomePage() {
   const router = useRouter();
-  const [isNavigating, setIsNavigating] = useState(false);
 
   const navigateWithTransition = (path: string) => {
     if (typeof document !== "undefined" && "startViewTransition" in document) {
-      setIsNavigating(true);
       (document as Document & { startViewTransition: (callback: () => void) => void }).startViewTransition(() => {
         router.push(path);
       });

@@ -28,16 +28,16 @@ export default function FAQAccordion({ faq, isOpen, onToggle }: FAQAccordionProp
         <h3 className="text-lg font-semibold text-green-700 dark:text-green-300">
           {faq.question}
         </h3>
-        <span className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+        <span className={`transform transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}>
           ▼
         </span>
       </button>
       <div 
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
         style={{
-          viewTransitionName: `faq-${faq.id}` // Unique transition name for each FAQ
+          viewTransitionName: `faq-${faq.id}`, // Unique transition name for each FAQ
         }}
       >
         <div className="px-6 py-4 bg-white/50 dark:bg-gray-800/50">

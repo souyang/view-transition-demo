@@ -18,14 +18,14 @@ const defaultNavItems: NavItem[] = [
   { label: "Overview", path: "/", icon: "🏠" },
   { label: "Panel Transitions", path: "/panel-transition", icon: "ℹ️" },
   { label: "Card Animations", path: "/card-animation", icon: "💼" },
-  { label: "List Reordering", path: "/list-reorder", icon: "🔄" }
+  { label: "List Reordering", path: "/list-reorder", icon: "🔄" },
 ];
 
 export default function NavBar({ 
   currentPage, 
   title = "View Transitions Demo",
   items = defaultNavItems,
-  className = ""
+  className = "",
 }: NavBarProps) {
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
@@ -76,12 +76,10 @@ export default function NavBar({
             <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate">
               {title}
             </h1>
-            {isNavigating && (
-              <div className="ml-3 flex items-center gap-2 text-blue-600">
-                <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                <span className="text-xs hidden sm:inline">Navigating...</span>
-              </div>
-            )}
+            {isNavigating ? <div className="ml-3 flex items-center gap-2 text-blue-600">
+              <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+              <span className="text-xs hidden sm:inline">Navigating...</span>
+            </div> : null}
           </div>
 
           {/* Desktop Navigation - Text Only */}
@@ -107,14 +105,14 @@ export default function NavBar({
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
                 <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${
-                  isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''
-                }`}></span>
+                  isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""
+                }`} />
                 <span className={`block w-5 h-0.5 bg-current transition-all duration-300 mt-1 ${
-                  isMobileMenuOpen ? 'opacity-0' : ''
-                }`}></span>
+                  isMobileMenuOpen ? "opacity-0" : ""
+                }`} />
                 <span className={`block w-5 h-0.5 bg-current transition-all duration-300 mt-1 ${
-                  isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
-                }`}></span>
+                  isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
+                }`} />
               </div>
             </button>
           </div>
@@ -122,7 +120,7 @@ export default function NavBar({
 
         {/* Mobile Menu - Icons + Text */}
         <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}>
           <div className="py-4 space-y-2 border-t border-gray-200 dark:border-gray-700">
             {items.map((item) => (
@@ -132,7 +130,7 @@ export default function NavBar({
                 className={getMobileButtonClass(item.path === "/" ? "home" : item.path.slice(1))}
                 disabled={isNavigating}
               >
-                {item.icon && <span className="text-lg">{item.icon}</span>}
+                {item.icon ? <span className="text-lg">{item.icon}</span> : null}
                 <span className="font-medium">{item.label}</span>
               </button>
             ))}

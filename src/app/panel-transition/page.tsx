@@ -5,35 +5,57 @@ import FAQAccordion from "../components/FAQAccordion";
 import InfoPanel from "../components/InfoPanel";
 import LayoutToggle from "../components/LayoutToggle";
 import { faqData } from "../data/FAQData";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 export default function AboutPage() {
-  const [layoutMode, setLayoutMode] = useState<'grid' | 'list'>('grid');
+  const [layoutMode, setLayoutMode] = useState<"grid" | "list">("grid");
   const [openFAQs, setOpenFAQs] = useState<number[]>([]);
   const [visiblePanels, setVisiblePanels] = useState({
     benefits: true,
     howItWorks: true,
-    browserSupport: true
+    browserSupport: true,
   });
 
   const toggleFAQ = (id: number) => {
     setOpenFAQs(prev => 
       prev.includes(id) 
         ? prev.filter(faqId => faqId !== id)
-        : [...prev, id]
+        : [...prev, id],
     );
   };
 
   const togglePanel = (panel: keyof typeof visiblePanels) => {
     setVisiblePanels(prev => ({
       ...prev,
-      [panel]: !prev[panel]
+      [panel]: !prev[panel],
     }));
   };
 
+  // Memoized callback functions to avoid react/jsx-no-bind warnings
+  const handleShowAll = useCallback(() => {
+    setVisiblePanels({
+      benefits: true,
+      howItWorks: true,
+      browserSupport: true,
+    });
+  }, []);
+
+  const handleToggleBenefits = useCallback(() => togglePanel("benefits"), [togglePanel]);
+  const handleToggleHowItWorks = useCallback(() => togglePanel("howItWorks"), [togglePanel]);
+  const handleToggleBrowserSupport = useCallback(() => togglePanel("browserSupport"), [togglePanel]);
+
+  const handleToggleFAQ = useCallback((id: number) => {
+    toggleFAQ(id);
+  }, [toggleFAQ]);
+
+  // Create memoized FAQ toggle functions
+  const createFAQToggleHandler = useCallback((id: number) => {
+    return () => handleToggleFAQ(id);
+  }, [handleToggleFAQ]);
+
   return (
     <div className="font-sans min-h-screen bg-gradient-to-br from-green-50 to-teal-100 dark:from-gray-900 dark:to-gray-800">
-      <NavBar currentPage="about" />
+      <NavBar currentPage="panel-transition" />
 
       {/* Content */}
       <main className="max-w-6xl mx-auto p-6">
@@ -45,13 +67,7 @@ export default function AboutPage() {
               </h1>
               {Object.values(visiblePanels).some(visible => !visible) && (
                 <button
-                  onClick={() => {
-                    setVisiblePanels({
-                      benefits: true,
-                      howItWorks: true,
-                      browserSupport: true
-                    });
-                  }}
+                  onClick={handleShowAll}
                   className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all duration-300 hover:scale-105 shadow-md cursor-pointer"
                 >
                   Show All
@@ -66,12 +82,12 @@ export default function AboutPage() {
 
           {/* Info Panels */}
           <div className={`space-y-4 transition-all duration-500 ${
-            layoutMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : 'space-y-4'
+            layoutMode === "grid" ? "grid grid-cols-1 md:grid-cols-2 gap-4" : "space-y-4"
           }`}>
             <InfoPanel 
               title="Benefits" 
               isVisible={visiblePanels.benefits}
-              onToggle={() => togglePanel('benefits')}
+              onToggle={handleToggleBenefits}
             >
               <ul className="text-gray-700 dark:text-gray-300 space-y-2">
                 <li>• Smooth, hardware-accelerated animations</li>
@@ -84,7 +100,7 @@ export default function AboutPage() {
             <InfoPanel 
               title="How it works" 
               isVisible={visiblePanels.howItWorks}
-              onToggle={() => togglePanel('howItWorks')}
+              onToggle={handleToggleHowItWorks}
             >
               <p className="text-gray-700 dark:text-gray-300">
                 The browser captures snapshots of the old and new states, then creates a smooth animation
@@ -95,7 +111,7 @@ export default function AboutPage() {
             <InfoPanel 
               title="Browser Support" 
               isVisible={visiblePanels.browserSupport}
-              onToggle={() => togglePanel('browserSupport')}
+              onToggle={handleToggleBrowserSupport}
             >
               <p className="text-gray-700 dark:text-gray-300">
                 View Transitions API is currently supported in Chromium-based browsers (Chrome, Edge, Opera).
@@ -115,7 +131,7 @@ export default function AboutPage() {
                   key={faq.id}
                   faq={faq}
                   isOpen={openFAQs.includes(faq.id)}
-                  onToggle={() => toggleFAQ(faq.id)}
+                  onToggle={createFAQToggleHandler(faq.id)}
                 />
               ))}
             </div>

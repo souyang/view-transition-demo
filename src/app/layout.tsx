@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
+import React from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +17,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "View Transitions Demo - Next.js",
   description: "A demonstration of view transitions in Next.js with smooth animations and modern UX",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/site.webmanifest",
+  themeColor: "#3B82F6",
+  colorScheme: "light dark",
 };
 
 export const viewport: Viewport = {

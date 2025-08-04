@@ -17,19 +17,19 @@ export default function ProjectsPage() {
 
   return (
     <div className="font-sans min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 dark:from-gray-900 dark:to-gray-800">
-      <NavBar currentPage="projects" />
+      <NavBar currentPage="card-animation" />
 
       {/* Content */}
       <main className="max-w-4xl mx-auto p-6">
         <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl p-8 shadow-xl backdrop-blur-sm">
           <h1 className={`text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}>
             Project Examples
           </h1>
           
           <p className={`text-gray-600 dark:text-gray-300 mb-8 transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}>
             Explore these projects with realistic fade transitions and hover effects
           </p>
@@ -46,7 +46,7 @@ export default function ProjectsPage() {
 
           {/* Interactive Transition Demo */}
           <div className={`mt-12 p-6 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-gray-700 dark:to-gray-600 rounded-xl transition-all duration-1000 delay-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">
               Interactive Transition Demo

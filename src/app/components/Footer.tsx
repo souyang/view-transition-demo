@@ -85,7 +85,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li className="text-gray-600 dark:text-gray-300">
-              <a
+                <a
                   href="https://nextjs.org/docs"
                   className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
@@ -95,7 +95,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-gray-600 dark:text-gray-300">
-              <a
+                <a
                   href="https://react.dev/reference/react"
                   className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
@@ -105,7 +105,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-gray-600 dark:text-gray-300">
-              <a
+                <a
                   href="https://www.typescriptlang.org/docs/"
                   className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
@@ -115,7 +115,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-gray-600 dark:text-gray-300">
-              <a
+                <a
                   href="https://tailwindcss.com/docs"
                   className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
@@ -135,24 +135,21 @@ export default function Footer() {
               © {currentYear} Simon Ouyang. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <a
-                href="#"
+              <button
                 className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="#"
+              </button>
+              <button
                 className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
               >
                 Terms of Service
-              </a>
-              <a
-                href="#"
+              </button>
+              <button
                 className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
               >
                 Contact
-              </a>
+              </button>
             </div>
           </div>
         </div>

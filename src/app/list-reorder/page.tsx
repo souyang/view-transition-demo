@@ -1,7 +1,7 @@
 "use client";
 
+import React, { useState } from "react";
 import NavBar from "../components/NavBar";
-import { useState } from "react";
 
 interface ListItem {
   id: number;
@@ -17,36 +17,36 @@ const initialItems: ListItem[] = [
     title: "First Priority",
     description: "This is the most important task",
     color: "from-red-500 to-pink-500",
-    icon: "🔥"
+    icon: "🔥",
   },
   {
     id: 2,
     title: "Second Priority",
     description: "This comes after the first",
     color: "from-orange-500 to-red-500",
-    icon: "⚡"
+    icon: "🌟",
   },
   {
     id: 3,
     title: "Third Priority",
     description: "Important but not urgent",
     color: "from-yellow-500 to-orange-500",
-    icon: "⭐"
+    icon: "❤️",
   },
   {
     id: 4,
     title: "Fourth Priority",
     description: "Can be done later",
     color: "from-green-500 to-yellow-500",
-    icon: "🌱"
+    icon: "🌲",
   },
   {
     id: 5,
     title: "Fifth Priority",
     description: "Lowest priority item",
     color: "from-blue-500 to-green-500",
-    icon: "💧"
-  }
+    icon: "💧",
+  },
 ];
 
 export default function ReorderPage() {
@@ -110,7 +110,7 @@ export default function ReorderPage() {
 
   return (
     <div className="font-sans min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-gray-900 dark:to-gray-800">
-      <NavBar currentPage="reorder" />
+      <NavBar currentPage="list-reorder" />
 
       {/* Content */}
       <main className="max-w-4xl mx-auto p-6">
@@ -142,10 +142,10 @@ export default function ReorderPage() {
                 onDragLeave={handleDragLeave}
                 onDrop={(e) => handleDrop(e, index)}
                 className={`cursor-move transition-all duration-300 ${
-                  dragOverIndex === index ? 'scale-105' : 'scale-100'
+                  dragOverIndex === index ? "scale-105" : "scale-100"
                 }`}
                 style={{
-                  viewTransitionName: `item-${item.id}`
+                  viewTransitionName: `item-${item.id}`,
                 }}
               >
                 <div className={`bg-gradient-to-r ${item.color} p-4 rounded-xl text-white shadow-lg hover:shadow-xl transition-all duration-300`}>

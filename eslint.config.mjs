@@ -43,7 +43,6 @@ const eslintConfig = [
         "varsIgnorePattern": "^_"
       }],
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/prefer-const": "error",
       "@typescript-eslint/no-var-requires": "error",
       
       // General code quality rules

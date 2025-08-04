@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface InfoPanelProps {
   title: string;
@@ -22,16 +22,16 @@ export default function InfoPanel({ title, children, isVisible, onToggle }: Info
     <div className="relative h-48 perspective-1000">
       <div 
         className={`absolute w-full h-full transition-transform duration-500 ease-in-out ${
-          isVisible ? 'rotate-y-0' : 'rotate-y-180'
+          isVisible ? "rotate-y-0" : "rotate-y-180"
         }`}
         style={{
-          transformStyle: 'preserve-3d'
+          transformStyle: "preserve-3d",
         }}
       >
         {/* Front of card (visible state) */}
         <div 
           className={`absolute w-full h-full backface-hidden ${
-            isVisible ? 'opacity-100' : 'opacity-0'
+            isVisible ? "opacity-100" : "opacity-0"
           } transition-opacity duration-300`}
         >
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl h-full">
@@ -54,7 +54,7 @@ export default function InfoPanel({ title, children, isVisible, onToggle }: Info
         {/* Back of card (hidden state) */}
         <div 
           className={`absolute w-full h-full backface-hidden rotate-y-180 ${
-            isVisible ? 'opacity-0' : 'opacity-100'
+            isVisible ? "opacity-0" : "opacity-100"
           } transition-opacity duration-300`}
         >
           <div className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl h-full">
