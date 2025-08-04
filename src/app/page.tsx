@@ -30,16 +30,22 @@ const features = [
 
 const ctaButtons = [
   {
-    label: "Go to About",
-    path: "/about",
-    color: "bg-green-600",
-    hoverColor: "bg-green-700"
+    label: "Panel Transitions",
+    path: "/panel-transition",
+    color: "bg-blue-600",
+    hoverColor: "bg-blue-700"
   },
   {
-    label: "View Projects",
-    path: "/projects",
+    label: "Card Animations",
+    path: "/card-animation",
     color: "bg-purple-600",
     hoverColor: "bg-purple-700"
+  },
+  {
+    label: "List Reordering",
+    path: "/list-reorder",
+    color: "bg-green-600",
+    hoverColor: "bg-green-700"
   }
 ];
 

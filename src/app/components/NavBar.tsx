@@ -16,9 +16,9 @@ interface NavBarProps {
 
 const defaultNavItems: NavItem[] = [
   { label: "Overview", path: "/", icon: "🏠" },
-  { label: "Panel Transitions", path: "/about", icon: "ℹ️" },
-  { label: "Card Animations", path: "/projects", icon: "💼" },
-  { label: "List Reordering", path: "/reorder", icon: "🔄" }
+  { label: "Panel Transitions", path: "/panel-transition", icon: "ℹ️" },
+  { label: "Card Animations", path: "/card-animation", icon: "💼" },
+  { label: "List Reordering", path: "/list-reorder", icon: "🔄" }
 ];
 
 export default function NavBar({ 

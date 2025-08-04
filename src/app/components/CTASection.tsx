@@ -26,7 +26,18 @@ export default function CTASection({ title, description, buttons, onNavigate }: 
           <button
             key={button.path}
             onClick={() => onNavigate(button.path)}
-            className={`px-6 py-3 ${button.color} hover:${button.hoverColor} text-white rounded-lg transition-colors`}
+            className={`
+              px-6 py-3 text-white rounded-lg font-medium
+              ${button.color} hover:${button.hoverColor}
+              transform hover:scale-105 active:scale-95
+              transition-all duration-200 ease-in-out
+              shadow-lg hover:shadow-xl
+              focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-600
+              focus:ring-opacity-50
+              disabled:opacity-50 disabled:cursor-not-allowed
+              hover:translate-y-[-2px]
+            `}
+            aria-label={`Navigate to ${button.label} page`}
           >
             {button.label}
           </button>
