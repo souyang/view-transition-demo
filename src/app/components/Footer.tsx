@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a
                 href="https://github.com"
-                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors cursor-pointer"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -27,7 +27,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://twitter.com"
-                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors cursor-pointer"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -48,7 +48,7 @@ export default function Footer() {
               <li>
                 <a
                   href="https://developer.chrome.com/docs/web-platform/view-transitions/"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -58,7 +58,7 @@ export default function Footer() {
               <li>
                 <a
                   href="https://nextjs.org/docs/app/api-reference/config/next-config-js/viewTransition"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -68,7 +68,7 @@ export default function Footer() {
               <li>
                 <a
                   href="https://react.dev/reference/react/ViewTransition"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -87,7 +87,7 @@ export default function Footer() {
               <li className="text-gray-600 dark:text-gray-300">
               <a
                   href="https://nextjs.org/docs"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -97,7 +97,7 @@ export default function Footer() {
               <li className="text-gray-600 dark:text-gray-300">
               <a
                   href="https://react.dev/reference/react"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -107,7 +107,7 @@ export default function Footer() {
               <li className="text-gray-600 dark:text-gray-300">
               <a
                   href="https://www.typescriptlang.org/docs/"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -117,7 +117,7 @@ export default function Footer() {
               <li className="text-gray-600 dark:text-gray-300">
               <a
                   href="https://tailwindcss.com/docs"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -137,19 +137,19 @@ export default function Footer() {
             <div className="flex space-x-6 text-sm">
               <a
                 href="#"
-                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
               >
                 Privacy Policy
               </a>
               <a
                 href="#"
-                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
               >
                 Terms of Service
               </a>
               <a
                 href="#"
-                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
               >
                 Contact
               </a>

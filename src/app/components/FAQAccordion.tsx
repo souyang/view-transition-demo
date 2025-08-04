@@ -23,7 +23,7 @@ export default function FAQAccordion({ faq, isOpen, onToggle }: FAQAccordionProp
     <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
       <button
         onClick={handleToggle}
-        className="w-full px-6 py-4 text-left bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 hover:from-green-100 hover:to-teal-100 dark:hover:from-green-800/30 dark:hover:to-teal-800/30 transition-all duration-300 flex justify-between items-center"
+        className="w-full px-6 py-4 text-left bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 hover:from-green-100 hover:to-teal-100 dark:hover:from-green-800/30 dark:hover:to-teal-800/30 transition-all duration-300 flex justify-between items-center cursor-pointer"
       >
         <h3 className="text-lg font-semibold text-green-700 dark:text-green-300">
           {faq.question}

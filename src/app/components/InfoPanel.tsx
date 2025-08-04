@@ -41,7 +41,7 @@ export default function InfoPanel({ title, children, isVisible, onToggle }: Info
               </h3>
               <button
                 onClick={handleToggle}
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors cursor-pointer"
                 disabled={isFlipping}
               >
                 Hide
@@ -64,7 +64,7 @@ export default function InfoPanel({ title, children, isVisible, onToggle }: Info
               </h3>
               <button
                 onClick={handleToggle}
-                className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors cursor-pointer"
                 disabled={isFlipping}
               >
                 Show

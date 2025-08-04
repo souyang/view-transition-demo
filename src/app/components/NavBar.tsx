@@ -47,7 +47,7 @@ export default function NavBar({
 
   const getButtonClass = (page: string) => {
     const isActive = currentPage === page;
-    const baseClass = "px-4 py-2 rounded-lg transition-all duration-300 font-medium";
+    const baseClass = "px-4 py-2 rounded-lg transition-all duration-300 font-medium cursor-pointer";
     
     if (isActive) {
       return `${baseClass} bg-blue-600 text-white shadow-lg hover:bg-blue-700`;
@@ -58,7 +58,7 @@ export default function NavBar({
 
   const getMobileButtonClass = (page: string) => {
     const isActive = currentPage === page;
-    const baseClass = "w-full px-4 py-3 rounded-lg transition-all duration-300 flex items-center gap-3 text-left";
+    const baseClass = "w-full px-4 py-3 rounded-lg transition-all duration-300 flex items-center gap-3 text-left cursor-pointer";
     
     if (isActive) {
       return `${baseClass} bg-blue-600 text-white`;
@@ -102,7 +102,7 @@ export default function NavBar({
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
               aria-label="Toggle mobile menu"
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
