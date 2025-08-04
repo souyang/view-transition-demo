@@ -20,10 +20,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
     ],
     apple: "/apple-touch-icon.png",
-    shortcut: "/favicon.ico",
   },
   manifest: "/site.webmanifest",
   themeColor: "#3B82F6",
