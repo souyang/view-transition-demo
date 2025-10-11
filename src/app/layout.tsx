@@ -49,6 +49,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  // Google Search Console verification - replace with your actual verification code
+  verification: {
+    google: 'RpXeAsouQQbTD0MCW4PwiKfHRxNOiL4C30nCETPN3gs',
+    // Example: google: 'abc123def456ghi789',
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
