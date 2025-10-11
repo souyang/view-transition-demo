@@ -1,26 +1,59 @@
 {
-  "name": "View Transitions Demo",
-  "short_name": "ViewTransitions",
-  "description": "A demonstration of view transitions in Next.js with smooth animations and modern UX",
+  "name": "View Transitions Demo - Next.js",
+  "short_name": "View Transitions",
+  "description": "Comprehensive demo showcasing the View Transitions API in Next.js 15 with React 19. Learn hardware-accelerated page transitions and smooth animations.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#3B82F6",
   "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["education", "developer tools", "productivity"],
   "icons": [
     {
       "src": "/favicon.svg",
-      "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "sizes": "any",
+      "purpose": "any maskable"
     },
     {
       "src": "/favicon.ico",
-      "sizes": "16x16 32x32",
+      "sizes": "48x48",
       "type": "image/x-icon"
     }
   ],
-  "categories": ["productivity", "utilities"],
-  "lang": "en",
-  "dir": "ltr"
-} 
+  "screenshots": [
+    {
+      "src": "/next.svg",
+      "type": "image/svg+xml",
+      "sizes": "800x600"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Panel Transitions",
+      "short_name": "Panels",
+      "description": "View panel transition demo",
+      "url": "/panel-transition",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Card Animations",
+      "short_name": "Cards",
+      "description": "View card animation demo",
+      "url": "/card-animation",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "List Reordering",
+      "short_name": "Lists",
+      "description": "View list reordering demo",
+      "url": "/list-reorder",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

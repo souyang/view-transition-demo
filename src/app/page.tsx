@@ -16,13 +16,13 @@ const features = [
   {
     title: "Performance",
     description: "Hardware-accelerated animations",
-    gradient: "from-purple-500 to-purple-600",
+    gradient: "from-purple-600 to-purple-700",
     icon: "⚡",
   },
   {
     title: "Modern UX",
     description: "Enhanced user experience",
-    gradient: "from-green-500 to-green-600",
+    gradient: "from-green-700 to-green-800",
     icon: "🎨",
   },
 ];
@@ -43,8 +43,8 @@ const ctaButtons = [
   {
     label: "List Reordering",
     path: "/list-reorder",
-    color: "bg-green-600",
-    hoverColor: "bg-green-700",
+    color: "bg-green-700",
+    hoverColor: "bg-green-800",
   },
 ];
 

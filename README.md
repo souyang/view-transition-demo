@@ -1,6 +1,37 @@
-# Introduction
+# View Transitions Demo
 
-This is the demo website for using viewTransition API
+This is a comprehensive demo website showcasing the **View Transitions API** in Next.js 15 with React 19.
+
+## ✨ Features
+
+- 🎨 **Smooth Page Transitions** - Hardware-accelerated animations at 60fps
+- ⚡ **Performance Optimized** - Progressive enhancement with automatic fallbacks
+- 🎯 **SEO Optimized** - Comprehensive structured data and metadata
+- 🤖 **AI-Friendly** - Dedicated machine-readable documentation at `/for-ai`
+- 📱 **PWA Ready** - Progressive Web App with shortcuts and offline support
+
+## 🚀 Live Demos
+
+- **Panel Transitions** - Toggle between information panels with smooth animations
+- **Card Animations** - Fade and hover effects for card-based layouts
+- **List Reordering** - Smooth reordering animations for priority lists
+
+## 📚 Documentation
+
+- **[SEO_IMPROVEMENTS.md](./SEO_IMPROVEMENTS.md)** - Comprehensive SEO implementation guide
+- **[SEO_QUICK_START.md](./SEO_QUICK_START.md)** - Quick implementation checklist
+- **[BEFORE_AFTER_COMPARISON.md](./BEFORE_AFTER_COMPARISON.md)** - SEO transformation metrics
+- **[CHANGES_SUMMARY.md](./CHANGES_SUMMARY.md)** - Complete list of changes
+
+## 🤖 For AI Models
+
+Visit `/for-ai` for machine-readable documentation, citation guidelines, and structured data designed specifically for AI consumption.
+
+**JSON Endpoints:**
+- `/summary.json` - Complete site summary
+- `/faq.json` - Structured FAQ data
+- `/sitemap.xml` - Site structure
+- `/robots.txt` - Crawler directives
 
 ## Getting Started
 

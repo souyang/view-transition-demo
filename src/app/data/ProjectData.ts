@@ -13,7 +13,7 @@ export const projects: ProjectCard[] = [
     title: "E-commerce Site",
     description: "Smooth transitions between product listings and detail pages",
     technologies: ["React", "Next.js"],
-    gradient: "from-purple-500 to-purple-600",
+    gradient: "from-purple-600 to-purple-800",
     delay: 0,
   },
   {
@@ -21,7 +21,7 @@ export const projects: ProjectCard[] = [
     title: "Portfolio",
     description: "Animated transitions between different portfolio sections",
     technologies: ["TypeScript", "Tailwind"],
-    gradient: "from-pink-500 to-pink-600",
+    gradient: "from-pink-600 to-pink-800",
     delay: 100,
   },
   {
@@ -29,7 +29,7 @@ export const projects: ProjectCard[] = [
     title: "Dashboard",
     description: "Smooth navigation between different dashboard views",
     technologies: ["Vue.js", "Vite"],
-    gradient: "from-blue-500 to-blue-600",
+    gradient: "from-blue-600 to-blue-800",
     delay: 200,
   },
   {
@@ -37,7 +37,7 @@ export const projects: ProjectCard[] = [
     title: "Blog Platform",
     description: "Elegant transitions between blog posts and categories",
     technologies: ["Svelte", "Kit"],
-    gradient: "from-green-500 to-green-600",
+    gradient: "from-green-600 to-green-800",
     delay: 300,
   },
   {
@@ -45,7 +45,7 @@ export const projects: ProjectCard[] = [
     title: "Social Media App",
     description: "Fluid transitions between feed, profile, and messaging",
     technologies: ["React Native", "Expo"],
-    gradient: "from-orange-500 to-orange-600",
+    gradient: "from-pink-600 to-pink-800",
     delay: 400,
   },
   {
@@ -53,7 +53,7 @@ export const projects: ProjectCard[] = [
     title: "Learning Platform",
     description: "Seamless navigation between courses and lessons",
     technologies: ["Angular", "RxJS"],
-    gradient: "from-teal-500 to-teal-600",
+    gradient: "from-teal-600 to-teal-800",
     delay: 500,
   },
 ]; 

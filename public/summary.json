@@ -1,0 +1,94 @@
+{
+  "name": "View Transitions Demo",
+  "description": "This is a demo website showcasing the View Transitions API in Next.js",
+  "version": "0.1.0",
+  "purpose": "Demonstrate smooth transitions between different pages of a web application using the View Transitions API",
+  "features": [
+    {
+      "name": "Smooth Transitions",
+      "description": "Elements smoothly animate between pages",
+      "icon": "✨"
+    },
+    {
+      "name": "Performance",
+      "description": "Hardware-accelerated animations running at 60fps",
+      "icon": "⚡"
+    },
+    {
+      "name": "Modern UX",
+      "description": "Enhanced user experience with polished animations",
+      "icon": "🎨"
+    }
+  ],
+  "demos": [
+    {
+      "name": "Panel Transitions",
+      "path": "/panel-transition",
+      "description": "Demonstrates smooth panel transitions between different views"
+    },
+    {
+      "name": "Card Animations",
+      "path": "/card-animation",
+      "description": "Shows animated transitions for card-based layouts"
+    },
+    {
+      "name": "List Reordering",
+      "path": "/list-reorder",
+      "description": "Illustrates smooth reordering animations for list items"
+    }
+  ],
+  "technology": {
+    "framework": "Next.js 15.4.5",
+    "language": "TypeScript",
+    "styling": "Tailwind CSS 4",
+    "react": "React 19.1.0",
+    "api": "View Transitions API"
+  },
+  "browserSupport": {
+    "supported": [
+      "Chrome (Chromium-based)",
+      "Edge (Chromium-based)",
+      "Opera (Chromium-based)"
+    ],
+    "fallback": "For browsers that don't support View Transitions, the application gracefully falls back to instant transitions"
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-commerce Site",
+      "description": "Smooth transitions between product listings and detail pages",
+      "technologies": ["React", "Next.js"]
+    },
+    {
+      "id": 2,
+      "title": "Portfolio",
+      "description": "Animated transitions between different portfolio sections",
+      "technologies": ["TypeScript", "Tailwind"]
+    },
+    {
+      "id": 3,
+      "title": "Dashboard",
+      "description": "Smooth navigation between different dashboard views",
+      "technologies": ["Vue.js", "Vite"]
+    },
+    {
+      "id": 4,
+      "title": "Blog Platform",
+      "description": "Elegant transitions between blog posts and categories",
+      "technologies": ["Svelte", "Kit"]
+    },
+    {
+      "id": 5,
+      "title": "Social Media App",
+      "description": "Fluid transitions between feed, profile, and messaging",
+      "technologies": ["React Native", "Expo"]
+    },
+    {
+      "id": 6,
+      "title": "Learning Platform",
+      "description": "Seamless navigation between courses and lessons",
+      "technologies": ["Angular", "RxJS"]
+    }
+  ]
+}
+
