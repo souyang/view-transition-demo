@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://view-transition-souyang.vercel.app/";
+  const baseUrl = "https://view-transition-souyang.vercel.app";
   
   return [
     {
