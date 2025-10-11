@@ -4,12 +4,12 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/'],
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/"],
       },
     ],
-    sitemap: 'https://yourdomain.com/sitemap.xml',
-  }
+    sitemap: "https://view-transition-souyang.vercel.app/sitemap.xml",
+  };
 }
 

@@ -19,7 +19,7 @@ export const websiteSchema = {
   '@type': 'WebSite',
   name: 'View Transitions Demo',
   description: 'Comprehensive demo showcasing the View Transitions API in Next.js',
-  url: 'https://yourdomain.com',
+  url: 'https://view-transition-souyang.vercel.app/',
   inLanguage: 'en-US',
   copyrightYear: new Date().getFullYear(),
   author: {
@@ -30,7 +30,7 @@ export const websiteSchema = {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://yourdomain.com/?q={search_term_string}',
+      urlTemplate: 'https://view-transition-souyang.vercel.app/?q={search_term_string}',
     },
     'query-input': 'required name=search_term_string',
   },
@@ -41,8 +41,8 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'View Transitions Demo',
-  url: 'https://yourdomain.com',
-  logo: 'https://yourdomain.com/next.svg',
+  url: 'https://view-transition-souyang.vercel.app/',
+  logo: 'https://view-transition-souyang.vercel.app/next.svg',
   description: 'Demonstrating modern web animation techniques with View Transitions API',
   sameAs: [
     // Add your social media links here
@@ -55,7 +55,7 @@ export const webApplicationSchema = {
   '@type': 'WebApplication',
   name: 'View Transitions Demo',
   description: 'Interactive demo of View Transitions API with Next.js 15 and React 19',
-  url: 'https://yourdomain.com',
+  url: 'https://view-transition-souyang.vercel.app/',
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'Any',
   offers: {
@@ -65,7 +65,7 @@ export const webApplicationSchema = {
   },
   browserRequirements: 'Requires JavaScript. Works best in Chromium-based browsers.',
   softwareVersion: '0.1.0',
-  screenshot: 'https://yourdomain.com/next.svg',
+  screenshot: 'https://view-transition-souyang.vercel.app/next.svg',
   featureList: [
     'Smooth Page Transitions',
     'Hardware-accelerated Animations',
@@ -151,7 +151,7 @@ export function generateTechArticleSchema(
       name: 'View Transitions Demo',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://yourdomain.com/next.svg',
+        url: 'https://view-transition-souyang.vercel.app/next.svg',
       },
     },
     mainEntityOfPage: {

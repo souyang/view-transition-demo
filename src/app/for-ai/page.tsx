@@ -50,8 +50,8 @@ const faqItems = [
 ];
 
 const breadcrumbItems = [
-  { name: 'Home', url: 'https://yourdomain.com/' },
-  { name: 'For AI', url: 'https://yourdomain.com/for-ai' }
+  { name: 'Home', url: 'https://view-transition-souyang.vercel.app/' },
+  { name: 'For AI', url: 'https://view-transition-souyang.vercel.app/for-ai' }
 ];
 
 export default function ForAIPage() {
