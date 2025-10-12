@@ -65,49 +65,10 @@ nav {
 }
 
 /* View Transition Styles */
-::view-transition-old(faq-*),
-::view-transition-new(faq-*) {
-  animation-duration: 0.3s;
-  animation-timing-function: ease-in-out;
-}
-
-::view-transition-old(faq-*) {
-  animation-name: slide-up;
-}
-
-::view-transition-new(faq-*) {
-  animation-name: slide-down;
-}
-
-/* Panel Flip Animations */
-::view-transition-old(panel-*),
-::view-transition-new(panel-*) {
-  animation-duration: 0.5s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(panel-*) {
-  animation-name: flip-out;
-}
-
-::view-transition-new(panel-*) {
-  animation-name: flip-in;
-}
-
-/* List Reordering Animations */
-::view-transition-old(item-*),
-::view-transition-new(item-*) {
-  animation-duration: 0.4s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(item-*) {
-  animation-name: slide-out;
-}
-
-::view-transition-new(item-*) {
-  animation-name: slide-in;
-}
+/* Note: View transitions are now handled via the useViewTransition hook
+   with viewTransitionName set dynamically in components.
+   CSS wildcard patterns like ::view-transition-old(faq-*) are not valid.
+   The browser uses default transitions which are smooth and performant. */
 
 @keyframes slide-out {
   from { 
