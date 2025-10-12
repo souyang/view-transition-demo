@@ -68,9 +68,12 @@ export default function NavBar({
         <div className="flex justify-between items-center h-16">
           {/* Logo/Title Section */}
           <div className="flex items-center">
-            <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate">
+            <button
+              onClick={() => navigateWithTransition('/')}
+              className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate cursor-pointer hover:opacity-80 transition-opacity duration-200"
+            >
               {title}
-            </h1>
+            </button>
           </div>
 
           {/* Desktop Navigation - Text Only */}
