@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface InfoPanelProps {
   title: string;
@@ -8,18 +8,15 @@ interface InfoPanelProps {
 }
 
 export default function InfoPanel({ title, children, isVisible, onToggle }: InfoPanelProps) {
-  const [isFlipping, setIsFlipping] = useState(false);
-
   const handleToggle = () => {
-    setIsFlipping(true);
-    setTimeout(() => {
-      onToggle();
-      setTimeout(() => setIsFlipping(false), 300);
-    }, 150);
+    onToggle(); // Call the parent's viewTransition-wrapped toggle
   };
 
   return (
-    <div className="relative h-48 perspective-1000">
+    <div 
+      className="relative h-48 perspective-1000"
+      style={{ viewTransitionName: `panel-${title.toLowerCase().replace(/\s+/g, '-')}` }}
+    >
       <div 
         className={`absolute w-full h-full transition-transform duration-500 ease-in-out ${
           isVisible ? "rotate-y-0" : "rotate-y-180"
@@ -30,9 +27,8 @@ export default function InfoPanel({ title, children, isVisible, onToggle }: Info
       >
         {/* Front of card (visible state) */}
         <div 
-          className={`absolute w-full h-full backface-hidden ${
-            isVisible ? "opacity-100" : "opacity-0"
-          } transition-opacity duration-300`}
+          className="absolute w-full h-full backface-hidden"
+          style={{ backfaceVisibility: "hidden" }}
         >
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-xl h-full">
             <div className="flex justify-between items-center mb-3">
@@ -42,7 +38,6 @@ export default function InfoPanel({ title, children, isVisible, onToggle }: Info
               <button
                 onClick={handleToggle}
                 className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors cursor-pointer"
-                disabled={isFlipping}
               >
                 Hide
               </button>
@@ -53,9 +48,8 @@ export default function InfoPanel({ title, children, isVisible, onToggle }: Info
 
         {/* Back of card (hidden state) */}
         <div 
-          className={`absolute w-full h-full backface-hidden rotate-y-180 ${
-            isVisible ? "opacity-0" : "opacity-100"
-          } transition-opacity duration-300`}
+          className="absolute w-full h-full backface-hidden rotate-y-180"
+          style={{ backfaceVisibility: "hidden" }}
         >
           <div className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl h-full">
             <div className="flex justify-between items-center">
@@ -65,7 +59,6 @@ export default function InfoPanel({ title, children, isVisible, onToggle }: Info
               <button
                 onClick={handleToggle}
                 className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors cursor-pointer"
-                disabled={isFlipping}
               >
                 Show
               </button>
