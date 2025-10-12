@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useViewTransition } from "../../hooks/useViewTransition";
 
 interface NavigationProps {
   currentPage: string;
@@ -9,19 +9,12 @@ interface NavigationProps {
 
 export default function Navigation({ currentPage }: NavigationProps) {
   const router = useRouter();
-  const [isNavigating, setIsNavigating] = useState(false);
+  const viewTransition = useViewTransition();
 
   const navigateWithTransition = (path: string) => {
-    if (typeof document !== "undefined" && "startViewTransition" in document) {
-      setIsNavigating(true);
-      (document as Document & { startViewTransition: (callback: () => void) => void }).startViewTransition(() => {
-        router.push(path);
-        // Reset navigation state after transition
-        setTimeout(() => setIsNavigating(false), 100);
-      });
-    } else {
+    viewTransition(() => {
       router.push(path);
-    }
+    });
   };
 
   const getButtonClass = (page: string) => {
@@ -37,30 +30,26 @@ export default function Navigation({ currentPage }: NavigationProps) {
         <button
           onClick={() => navigateWithTransition("/")}
           className={getButtonClass("home")}
-          disabled={isNavigating}
         >
-          {isNavigating ? "Navigating..." : "Home"}
+          Home
         </button>
         <button
           onClick={() => navigateWithTransition("/about")}
           className={getButtonClass("about")}
-          disabled={isNavigating}
         >
-          {isNavigating ? "Navigating..." : "About"}
+          About
         </button>
         <button
           onClick={() => navigateWithTransition("/projects")}
           className={getButtonClass("projects")}
-          disabled={isNavigating}
         >
-          {isNavigating ? "Navigating..." : "Projects"}
+          Projects
         </button>
         <button
           onClick={() => navigateWithTransition("/reorder")}
           className={getButtonClass("reorder")}
-          disabled={isNavigating}
         >
-          {isNavigating ? "Navigating..." : "Reorder"}
+          Reorder
         </button>
       </div>
     </nav>

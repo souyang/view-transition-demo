@@ -5,6 +5,12 @@ export interface ProjectCard {
   technologies: string[];
   gradient: string;
   delay: number;
+  // Back side details
+  features: string[];
+  status: string;
+  completion: string;
+  demoUrl?: string;
+  githubUrl?: string;
 }
 
 export const projects: ProjectCard[] = [
@@ -15,6 +21,16 @@ export const projects: ProjectCard[] = [
     technologies: ["React", "Next.js"],
     gradient: "from-purple-600 to-purple-800",
     delay: 0,
+    features: [
+      "Shopping Cart",
+      "Product Search",
+      "User Reviews",
+      "Payment Integration",
+    ],
+    status: "Production",
+    completion: "100%",
+    demoUrl: "#demo",
+    githubUrl: "#github",
   },
   {
     id: 2,
@@ -23,6 +39,11 @@ export const projects: ProjectCard[] = [
     technologies: ["TypeScript", "Tailwind"],
     gradient: "from-pink-600 to-pink-800",
     delay: 100,
+    features: ["Project Showcase", "Contact Form", "Blog Section", "Dark Mode"],
+    status: "Live",
+    completion: "100%",
+    demoUrl: "#demo",
+    githubUrl: "#github",
   },
   {
     id: 3,
@@ -31,6 +52,16 @@ export const projects: ProjectCard[] = [
     technologies: ["Vue.js", "Vite"],
     gradient: "from-blue-600 to-blue-800",
     delay: 200,
+    features: [
+      "Real-time Charts",
+      "Data Export",
+      "User Management",
+      "API Integration",
+    ],
+    status: "Beta",
+    completion: "85%",
+    demoUrl: "#demo",
+    githubUrl: "#github",
   },
   {
     id: 4,
@@ -39,6 +70,16 @@ export const projects: ProjectCard[] = [
     technologies: ["Svelte", "Kit"],
     gradient: "from-green-600 to-green-800",
     delay: 300,
+    features: [
+      "Markdown Editor",
+      "SEO Optimization",
+      "Comments System",
+      "RSS Feed",
+    ],
+    status: "Production",
+    completion: "100%",
+    demoUrl: "#demo",
+    githubUrl: "#github",
   },
   {
     id: 5,
@@ -47,6 +88,15 @@ export const projects: ProjectCard[] = [
     technologies: ["React Native", "Expo"],
     gradient: "from-pink-600 to-pink-800",
     delay: 400,
+    features: [
+      "Real-time Messaging",
+      "Photo Sharing",
+      "Stories",
+      "Push Notifications",
+    ],
+    status: "Development",
+    completion: "70%",
+    demoUrl: "#demo",
   },
   {
     id: 6,
@@ -55,5 +105,10 @@ export const projects: ProjectCard[] = [
     technologies: ["Angular", "RxJS"],
     gradient: "from-teal-600 to-teal-800",
     delay: 500,
+    features: ["Video Lessons", "Progress Tracking", "Quizzes", "Certificates"],
+    status: "Beta",
+    completion: "90%",
+    demoUrl: "#demo",
+    githubUrl: "#github",
   },
 ]; 

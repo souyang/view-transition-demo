@@ -6,8 +6,10 @@ import InfoPanel from "../components/InfoPanel";
 import LayoutToggle from "../components/LayoutToggle";
 import { faqData } from "../data/FAQData";
 import { useState, useCallback } from "react";
+import { useViewTransition } from "../../hooks/useViewTransition";
 
 export default function AboutPage() {
+  const viewTransition = useViewTransition();
   const [layoutMode, setLayoutMode] = useState<"grid" | "list">("grid");
   const [openFAQs, setOpenFAQs] = useState<number[]>([]);
   const [visiblePanels, setVisiblePanels] = useState({
@@ -16,29 +18,41 @@ export default function AboutPage() {
     browserSupport: true,
   });
 
-  const toggleFAQ = (id: number) => {
-    setOpenFAQs(prev => 
-      prev.includes(id) 
-        ? prev.filter(faqId => faqId !== id)
-        : [...prev, id],
-    );
-  };
+  const toggleFAQ = useCallback((id: number) => {
+    viewTransition(() => {
+      setOpenFAQs(prev => 
+        prev.includes(id) 
+          ? prev.filter(faqId => faqId !== id)
+          : [...prev, id],
+      );
+    });
+  }, [viewTransition]);
 
-  const togglePanel = (panel: keyof typeof visiblePanels) => {
-    setVisiblePanels(prev => ({
-      ...prev,
-      [panel]: !prev[panel],
-    }));
-  };
+  const togglePanel = useCallback((panel: keyof typeof visiblePanels) => {
+    viewTransition(() => {
+      setVisiblePanels(prev => ({
+        ...prev,
+        [panel]: !prev[panel],
+      }));
+    });
+  }, [viewTransition]);
+
+  const handleLayoutChange = useCallback((mode: "grid" | "list") => {
+    viewTransition(() => {
+      setLayoutMode(mode);
+    });
+  }, [viewTransition]);
 
   // Memoized callback functions to avoid react/jsx-no-bind warnings
   const handleShowAll = useCallback(() => {
-    setVisiblePanels({
-      benefits: true,
-      howItWorks: true,
-      browserSupport: true,
+    viewTransition(() => {
+      setVisiblePanels({
+        benefits: true,
+        howItWorks: true,
+        browserSupport: true,
+      });
     });
-  }, []);
+  }, [viewTransition]);
 
   const handleToggleBenefits = useCallback(() => togglePanel("benefits"), [togglePanel]);
   const handleToggleHowItWorks = useCallback(() => togglePanel("howItWorks"), [togglePanel]);
@@ -76,7 +90,7 @@ export default function AboutPage() {
             </div>
             <LayoutToggle 
               layoutMode={layoutMode}
-              onLayoutChange={setLayoutMode}
+              onLayoutChange={handleLayoutChange}
             />
           </div>
 

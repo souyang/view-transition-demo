@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useViewTransition } from "../../hooks/useViewTransition";
 
 interface NavItem {
   label: string;
@@ -28,21 +29,15 @@ export default function NavBar({
   className = "",
 }: NavBarProps) {
   const router = useRouter();
-  const [isNavigating, setIsNavigating] = useState(false);
+  const viewTransition = useViewTransition();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigateWithTransition = (path: string) => {
-    if (typeof document !== "undefined" && "startViewTransition" in document) {
-      setIsNavigating(true);
-      (document as Document & { startViewTransition: (callback: () => void) => void }).startViewTransition(() => {
-        router.push(path);
-        setTimeout(() => setIsNavigating(false), 100);
-      });
-    } else {
+    setIsMobileMenuOpen(false); // Close mobile menu immediately
+    
+    viewTransition(() => {
       router.push(path);
-    }
-    // Close mobile menu after navigation
-    setIsMobileMenuOpen(false);
+    });
   };
 
   const getButtonClass = (page: string) => {
@@ -76,10 +71,6 @@ export default function NavBar({
             <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate">
               {title}
             </h1>
-            {isNavigating ? <div className="ml-3 flex items-center gap-2 text-blue-600">
-              <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
-              <span className="text-xs hidden sm:inline">Navigating...</span>
-            </div> : null}
           </div>
 
           {/* Desktop Navigation - Text Only */}
@@ -89,7 +80,6 @@ export default function NavBar({
                 key={item.path}
                 onClick={() => navigateWithTransition(item.path)}
                 className={getButtonClass(item.path === "/" ? "home" : item.path.slice(1))}
-                disabled={isNavigating}
               >
                 {item.label}
               </button>
@@ -128,7 +118,6 @@ export default function NavBar({
                 key={item.path}
                 onClick={() => navigateWithTransition(item.path)}
                 className={getMobileButtonClass(item.path === "/" ? "home" : item.path.slice(1))}
-                disabled={isNavigating}
               >
                 {item.icon ? <span className="text-lg">{item.icon}</span> : null}
                 <span className="font-medium">{item.label}</span>

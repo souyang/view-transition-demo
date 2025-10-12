@@ -5,8 +5,10 @@ import ProjectCard from "../components/ProjectCard";
 import TransitionDemoCard from "../components/TransitionDemoCard";
 import { projects } from "../data/ProjectData";
 import { useState, useEffect } from "react";
+import { useViewTransition } from "../../hooks/useViewTransition";
 
 export default function ProjectsPage() {
+  const viewTransition = useViewTransition();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -14,6 +16,10 @@ export default function ProjectsPage() {
     const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleCardFlip = (callback: () => void) => {
+    viewTransition(callback);
+  };
 
   return (
     <div className="font-sans min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 dark:from-gray-900 dark:to-gray-800">
@@ -40,6 +46,7 @@ export default function ProjectsPage() {
                 key={project.id} 
                 {...project}
                 isVisible={isVisible}
+                onFlip={handleCardFlip}
               />
             ))}
           </div>

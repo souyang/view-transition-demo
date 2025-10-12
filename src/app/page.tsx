@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import FeatureCard from "./components/FeatureCard";
 import CTASection from "./components/CTASection";
+import { useViewTransition } from "../hooks/useViewTransition";
 
 const features = [
   {
@@ -50,15 +51,12 @@ const ctaButtons = [
 
 export default function HomePage() {
   const router = useRouter();
+  const viewTransition = useViewTransition();
 
   const navigateWithTransition = (path: string) => {
-    if (typeof document !== "undefined" && "startViewTransition" in document) {
-      (document as Document & { startViewTransition: (callback: () => void) => void }).startViewTransition(() => {
-        router.push(path);
-      });
-    } else {
+    viewTransition(() => {
       router.push(path);
-    }
+    });
   };
 
   return (

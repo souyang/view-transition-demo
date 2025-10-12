@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import NavBar from "../components/NavBar";
+import { useViewTransition } from "../../hooks/useViewTransition";
 
 interface ListItem {
   id: number;
@@ -50,6 +51,7 @@ const initialItems: ListItem[] = [
 ];
 
 export default function ReorderPage() {
+  const viewTransition = useViewTransition();
   const [items, setItems] = useState<ListItem[]>(initialItems);
   const [draggedItem, setDraggedItem] = useState<ListItem | null>(null);
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
@@ -78,34 +80,22 @@ export default function ReorderPage() {
     
     if (draggedIndex === dropIndex) return;
 
-    // Use View Transitions API if available
-    if (typeof document !== "undefined" && "startViewTransition" in document) {
-      (document as Document & { startViewTransition: (callback: () => void) => void }).startViewTransition(() => {
-        const newItems = [...items];
-        const [removed] = newItems.splice(draggedIndex, 1);
-        newItems.splice(dropIndex, 0, removed);
-        setItems(newItems);
-      });
-    } else {
-      // Fallback for browsers without View Transitions
+    // Use View Transitions API with our hook
+    viewTransition(() => {
       const newItems = [...items];
       const [removed] = newItems.splice(draggedIndex, 1);
       newItems.splice(dropIndex, 0, removed);
       setItems(newItems);
-    }
+    });
 
     setDraggedItem(null);
     setDragOverIndex(null);
   };
 
   const resetOrder = () => {
-    if (typeof document !== "undefined" && "startViewTransition" in document) {
-      (document as Document & { startViewTransition: (callback: () => void) => void }).startViewTransition(() => {
-        setItems(initialItems);
-      });
-    } else {
+    viewTransition(() => {
       setItems(initialItems);
-    }
+    });
   };
 
   return (
