@@ -1,26 +1,12 @@
 /* Doc Page Styles - Scoped with doc- prefix to avoid conflicts */
 
-.doc-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding-bottom: 2rem;
-}
-
-.doc-container {
-  max-width: 1200px;
-  margin: 2rem auto 0;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-
-/* Header */
+/* Header - matches Panel Transitions green/teal theme */
 .doc-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
   color: white;
   padding: 3rem 2rem;
   text-align: center;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .doc-title {
@@ -386,10 +372,6 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .doc-page {
-    padding: 1rem 0.5rem;
-  }
-
   .doc-title {
     font-size: 1.75rem;
   }

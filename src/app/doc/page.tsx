@@ -164,9 +164,10 @@ export default function DocPage() {
   const [activeTab, setActiveTab] = useState("overview");
 
   return (
-    <div className="doc-page">
+    <div className="font-sans min-h-screen bg-gradient-to-br from-green-50 to-teal-100 dark:from-gray-900 dark:to-gray-800">
       <NavBar currentPage="doc" />
-      <div className="doc-container">
+      <main className="max-w-6xl mx-auto p-6">
+        <div className="bg-white/90 dark:bg-gray-800/90 rounded-2xl p-8 shadow-xl backdrop-blur-sm">
         {/* Header */}
         <header className="doc-header">
           <h1 className="doc-title">🎬 useViewTransition</h1>
@@ -419,7 +420,8 @@ export default function DocPage() {
             </div>
           )}
         </div>
-      </div>
+        </div>
+      </main>
     </div>
   );
 }
