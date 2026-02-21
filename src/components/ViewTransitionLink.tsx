@@ -17,6 +17,8 @@ interface ViewTransitionLinkProps extends Omit<LinkProps, "onClick"> {
   children: ReactNode;
   className?: string;
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
+  target?: string;
+  rel?: string;
   /**
    * Disable view transition for this specific link
    * @default false
@@ -51,6 +53,7 @@ export default function ViewTransitionLink({
   href,
   disableTransition = false,
   onClick,
+  target,
   ...props
 }: ViewTransitionLinkProps) {
   const router = useRouter();
@@ -75,7 +78,7 @@ export default function ViewTransitionLink({
       e.shiftKey ||
       e.button !== 0 ||
       e.defaultPrevented ||
-      props.target === "_blank"
+      target === "_blank"
     ) {
       return;
     }
@@ -92,7 +95,7 @@ export default function ViewTransitionLink({
   };
 
   return (
-    <Link href={href} onClick={handleClick} {...props}>
+    <Link href={href} onClick={handleClick} target={target} {...props}>
       {children}
     </Link>
   );
