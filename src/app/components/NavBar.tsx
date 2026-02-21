@@ -20,6 +20,7 @@ const defaultNavItems: NavItem[] = [
   { label: "Panel Transitions", path: "/panel-transition", icon: "ℹ️" },
   { label: "Card Animations", path: "/card-animation", icon: "💼" },
   { label: "List Reordering", path: "/list-reorder", icon: "🔄" },
+  { label: "Documentation", path: "/doc", icon: "📚" },
 ];
 
 export default function NavBar({ 

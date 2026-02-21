@@ -58,7 +58,7 @@ declare global {
  * @browserSupport
  * - Chrome/Edge: 111+ (full support)
  * - Safari: 18+ (full support)
- * - Firefox: Not yet supported (graceful fallback)
+ * - Firefox: 146+ (full support)
  */
 export function useViewTransition() {
   return (updateFn: () => void) => {
