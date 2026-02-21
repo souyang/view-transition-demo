@@ -1,6 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useViewTransition } from "../../hooks/useViewTransition";
+import ViewTransitionLink from "@/components/ViewTransitionLink";
 
 interface NavItem {
   label: string;
@@ -23,43 +24,29 @@ const defaultNavItems: NavItem[] = [
   { label: "List Reordering", path: "/list-reorder", icon: "🔄" },
 ];
 
-export default function NavBar({ 
-  currentPage, 
+export default function NavBar({
+  currentPage,
   title = "View Transitions Demo",
   items = defaultNavItems,
   className = "",
 }: NavBarProps) {
-  const router = useRouter();
-  const viewTransition = useViewTransition();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navigateWithTransition = (path: string) => {
-    setIsMobileMenuOpen(false); // Close mobile menu immediately
-    
-    viewTransition(() => {
-      router.push(path);
-    });
-  };
-
-  const getButtonClass = (page: string) => {
+  const getLinkClass = (page: string) => {
     const isActive = currentPage === page;
     const baseClass = "px-4 py-2 rounded-lg transition-all duration-300 font-medium cursor-pointer";
-    
     if (isActive) {
       return `${baseClass} bg-blue-600 text-white shadow-lg hover:bg-blue-700`;
     }
-    
     return `${baseClass} text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white`;
   };
 
-  const getMobileButtonClass = (page: string) => {
+  const getMobileLinkClass = (page: string) => {
     const isActive = currentPage === page;
     const baseClass = "w-full px-4 py-3 rounded-lg transition-all duration-300 flex items-center gap-3 text-left cursor-pointer";
-    
     if (isActive) {
       return `${baseClass} bg-blue-600 text-white`;
     }
-    
     return `${baseClass} text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700`;
   };
 
@@ -69,33 +56,37 @@ export default function NavBar({
         <div className="flex justify-between items-center h-16">
           {/* Logo/Title Section */}
           <div className="flex items-center">
-            <button
-              onClick={() => navigateWithTransition('/')}
+            <ViewTransitionLink
+              href="/"
               className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate cursor-pointer hover:opacity-80 transition-opacity duration-200"
             >
               {title}
-            </button>
+            </ViewTransitionLink>
           </div>
 
-          {/* Desktop Navigation - Text Only */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-2">
             {items.map((item) => (
-              <button
+              <ViewTransitionLink
                 key={item.path}
-                onClick={() => navigateWithTransition(item.path)}
-                className={getButtonClass(item.path === "/" ? "home" : item.path.slice(1))}
+                href={item.path}
+                className={getLinkClass(item.path === "/" ? "home" : item.path.slice(1))}
               >
                 {item.label}
-              </button>
+              </ViewTransitionLink>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
+              type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
               aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav-menu"
+              aria-haspopup="menu"
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
                 <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${
@@ -112,24 +103,28 @@ export default function NavBar({
           </div>
         </div>
 
-        {/* Mobile Menu - Icons + Text */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}>
+        {/* Mobile Menu */}
+        <div
+          id="mobile-nav-menu"
+          className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
           <div className="py-4 space-y-2 border-t border-gray-200 dark:border-gray-700">
             {items.map((item) => (
-              <button
+              <ViewTransitionLink
                 key={item.path}
-                onClick={() => navigateWithTransition(item.path)}
-                className={getMobileButtonClass(item.path === "/" ? "home" : item.path.slice(1))}
+                href={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={getMobileLinkClass(item.path === "/" ? "home" : item.path.slice(1))}
               >
                 {item.icon ? <span className="text-lg">{item.icon}</span> : null}
                 <span className="font-medium">{item.label}</span>
-              </button>
+              </ViewTransitionLink>
             ))}
           </div>
         </div>
       </div>
     </nav>
   );
-} 
+}

@@ -1,10 +1,14 @@
+"use client";
+
+import ViewTransitionLink from "@/components/ViewTransitionLink";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Project Info */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -39,7 +43,56 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Explore - Internal Navigation */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              Explore
+            </h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <ViewTransitionLink
+                  href="/"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                >
+                  Overview
+                </ViewTransitionLink>
+              </li>
+              <li>
+                <ViewTransitionLink
+                  href="/doc"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                >
+                  Documentation
+                </ViewTransitionLink>
+              </li>
+              <li>
+                <ViewTransitionLink
+                  href="/panel-transition"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                >
+                  Panel Transitions
+                </ViewTransitionLink>
+              </li>
+              <li>
+                <ViewTransitionLink
+                  href="/card-animation"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                >
+                  Card Animations
+                </ViewTransitionLink>
+              </li>
+              <li>
+                <ViewTransitionLink
+                  href="/list-reorder"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                >
+                  List Reordering
+                </ViewTransitionLink>
+              </li>
+            </ul>
+          </div>
+
+          {/* Quick Links - External */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
               Quick Links
@@ -135,21 +188,33 @@ export default function Footer() {
               © {currentYear} Simon Ouyang. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <button
-                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                aria-disabled="true"
+                title="Coming soon"
+                className="text-gray-500 dark:text-gray-400 cursor-not-allowed transition-colors"
               >
                 Privacy Policy
-              </button>
-              <button
-                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+              </a>
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                aria-disabled="true"
+                title="Coming soon"
+                className="text-gray-500 dark:text-gray-400 cursor-not-allowed transition-colors"
               >
                 Terms of Service
-              </button>
-              <button
-                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+              </a>
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                aria-disabled="true"
+                title="Coming soon"
+                className="text-gray-500 dark:text-gray-400 cursor-not-allowed transition-colors"
               >
                 Contact
-              </button>
+              </a>
             </div>
           </div>
         </div>

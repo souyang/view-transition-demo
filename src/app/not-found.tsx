@@ -1,20 +1,14 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useViewTransition } from '../hooks/useViewTransition';
+import NavBar from './components/NavBar';
+import ViewTransitionLink from '@/components/ViewTransitionLink';
 
 export default function NotFound() {
-  const router = useRouter();
   const viewTransition = useViewTransition();
   const [isAnimating, setIsAnimating] = useState(false);
   const [hoveredButton, setHoveredButton] = useState<string | null>(null);
-
-  const navigateWithTransition = (path: string) => {
-    viewTransition(() => {
-      router.push(path);
-    });
-  };
 
   const handleNotFoundClick = () => {
     viewTransition(() => {
@@ -22,8 +16,11 @@ export default function NotFound() {
       setTimeout(() => setIsAnimating(false), 600);
     });
   };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex flex-col">
+      <NavBar currentPage="" />
+      <div className="flex-1 flex items-center justify-center p-6">
       <div className="max-w-2xl w-full text-center">
         {/* 404 Animation */}
         <div className="mb-8 relative">
@@ -58,13 +55,13 @@ export default function NotFound() {
 
           {/* Helpful Links */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <button 
-              onClick={() => navigateWithTransition('/')}
+            <ViewTransitionLink
+              href="/"
               onMouseEnter={() => setHoveredButton('home')}
               onMouseLeave={() => setHoveredButton(null)}
               className={`group flex items-center justify-center gap-2 px-6 py-3 text-white rounded-lg transition-all duration-200 border-2 ${
-                hoveredButton === 'home' 
-                  ? 'bg-blue-700 border-blue-800 shadow-xl scale-105' 
+                hoveredButton === 'home'
+                  ? 'bg-blue-700 border-blue-800 shadow-xl scale-105'
                   : 'bg-blue-600 border-blue-700 shadow-lg'
               }`}
             >
@@ -72,15 +69,15 @@ export default function NotFound() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
               Go Home
-            </button>
+            </ViewTransitionLink>
 
-            <button 
-              onClick={() => navigateWithTransition('/for-ai')}
+            <ViewTransitionLink
+              href="/for-ai"
               onMouseEnter={() => setHoveredButton('info')}
               onMouseLeave={() => setHoveredButton(null)}
               className={`group flex items-center justify-center gap-2 px-6 py-3 text-white rounded-lg transition-all duration-200 border-2 ${
-                hoveredButton === 'info' 
-                  ? 'bg-purple-800 border-purple-900 shadow-xl scale-105' 
+                hoveredButton === 'info'
+                  ? 'bg-purple-800 border-purple-900 shadow-xl scale-105'
                   : 'bg-purple-700 border-purple-800 shadow-lg'
               }`}
             >
@@ -88,7 +85,7 @@ export default function NotFound() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Site Info
-            </button>
+            </ViewTransitionLink>
           </div>
 
           {/* Quick Navigation */}
@@ -97,8 +94,8 @@ export default function NotFound() {
               Or explore our demos:
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <button 
-                onClick={() => navigateWithTransition('/panel-transition')}
+              <ViewTransitionLink
+                href="/panel-transition"
                 onMouseEnter={() => setHoveredButton('panel')}
                 onMouseLeave={() => setHoveredButton(null)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border-2 ${
@@ -108,9 +105,9 @@ export default function NotFound() {
                 }`}
               >
                 Panel Transitions
-              </button>
-              <button 
-                onClick={() => navigateWithTransition('/card-animation')}
+              </ViewTransitionLink>
+              <ViewTransitionLink
+                href="/card-animation"
                 onMouseEnter={() => setHoveredButton('card')}
                 onMouseLeave={() => setHoveredButton(null)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border-2 ${
@@ -120,9 +117,9 @@ export default function NotFound() {
                 }`}
               >
                 Card Animations
-              </button>
-              <button 
-                onClick={() => navigateWithTransition('/list-reorder')}
+              </ViewTransitionLink>
+              <ViewTransitionLink
+                href="/list-reorder"
                 onMouseEnter={() => setHoveredButton('list')}
                 onMouseLeave={() => setHoveredButton(null)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border-2 ${
@@ -132,7 +129,7 @@ export default function NotFound() {
                 }`}
               >
                 List Reordering
-              </button>
+              </ViewTransitionLink>
             </div>
           </div>
         </div>
@@ -143,6 +140,7 @@ export default function NotFound() {
         </div>
       </div>
     </div>
+  </div>
   );
 }
 

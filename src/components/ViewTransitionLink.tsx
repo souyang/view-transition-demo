@@ -17,6 +17,8 @@ interface ViewTransitionLinkProps extends Omit<LinkProps, "onClick"> {
   children: ReactNode;
   className?: string;
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   target?: string;
   rel?: string;
   /**
@@ -53,6 +55,8 @@ export default function ViewTransitionLink({
   href,
   disableTransition = false,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   target,
   ...props
 }: ViewTransitionLinkProps) {
@@ -95,7 +99,14 @@ export default function ViewTransitionLink({
   };
 
   return (
-    <Link href={href} onClick={handleClick} target={target} {...props}>
+    <Link
+      href={href}
+      onClick={handleClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      target={target}
+      {...props}
+    >
       {children}
     </Link>
   );

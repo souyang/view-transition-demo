@@ -1,11 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import FeatureCard from "./components/FeatureCard";
 import CTASection from "./components/CTASection";
-import { useViewTransition } from "../hooks/useViewTransition";
 
 const features = [
   {
@@ -32,33 +30,21 @@ const ctaButtons = [
   {
     label: "Panel Transitions",
     path: "/panel-transition",
-    color: "bg-blue-600",
-    hoverColor: "bg-blue-700",
+    className: "bg-blue-600 hover:bg-blue-700",
   },
   {
     label: "Card Animations",
     path: "/card-animation",
-    color: "bg-purple-600",
-    hoverColor: "bg-purple-700",
+    className: "bg-purple-600 hover:bg-purple-700",
   },
   {
     label: "List Reordering",
     path: "/list-reorder",
-    color: "bg-green-700",
-    hoverColor: "bg-green-800",
+    className: "bg-green-700 hover:bg-green-800",
   },
 ];
 
 export default function HomePage() {
-  const router = useRouter();
-  const viewTransition = useViewTransition();
-
-  const navigateWithTransition = (path: string) => {
-    viewTransition(() => {
-      router.push(path);
-    });
-  };
-
   return (
     <div className="font-sans min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       <NavBar currentPage="home" />
@@ -89,7 +75,6 @@ export default function HomePage() {
             title="Try the Navigation"
             description="Click on the &ldquo;Panel Transitions&rdquo; or &ldquo;Card Animations&rdquo; buttons in the navigation to experience smooth view transitions between pages."
             buttons={ctaButtons}
-            onNavigate={navigateWithTransition}
           />
         </div>
       </main>
