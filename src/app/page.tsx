@@ -87,7 +87,7 @@ export default function HomePage() {
 
           <CTASection
             title="Try the Navigation"
-            description="Click on the &ldquo;About&rdquo; or &ldquo;Projects&rdquo; buttons in the navigation to experience smooth view transitions between pages."
+            description="Click on the &ldquo;Panel Transitions&rdquo; or &ldquo;Card Animations&rdquo; buttons in the navigation to experience smooth view transitions between pages."
             buttons={ctaButtons}
             onNavigate={navigateWithTransition}
           />
