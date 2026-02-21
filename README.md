@@ -16,23 +16,6 @@ This is a comprehensive demo website showcasing the **View Transitions API** in 
 - **Card Animations** - Fade and hover effects for card-based layouts
 - **List Reordering** - Smooth reordering animations for priority lists
 
-## 📚 Documentation
-
-- **[SEO_IMPROVEMENTS.md](./SEO_IMPROVEMENTS.md)** - Comprehensive SEO implementation guide
-- **[SEO_QUICK_START.md](./SEO_QUICK_START.md)** - Quick implementation checklist
-- **[BEFORE_AFTER_COMPARISON.md](./BEFORE_AFTER_COMPARISON.md)** - SEO transformation metrics
-- **[CHANGES_SUMMARY.md](./CHANGES_SUMMARY.md)** - Complete list of changes
-
-## 🤖 For AI Models
-
-Visit `/for-ai` for machine-readable documentation, citation guidelines, and structured data designed specifically for AI consumption.
-
-**JSON Endpoints:**
-- `/summary.json` - Complete site summary
-- `/faq.json` - Structured FAQ data
-- `/sitemap.xml` - Site structure
-- `/robots.txt` - Crawler directives
-
 ## Getting Started
 
 First, run the development server:
