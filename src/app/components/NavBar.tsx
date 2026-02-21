@@ -17,10 +17,10 @@ interface NavBarProps {
 
 const defaultNavItems: NavItem[] = [
   { label: "Overview", path: "/", icon: "🏠" },
+  { label: "Documentation", path: "/doc", icon: "📚" },
   { label: "Panel Transitions", path: "/panel-transition", icon: "ℹ️" },
   { label: "Card Animations", path: "/card-animation", icon: "💼" },
   { label: "List Reordering", path: "/list-reorder", icon: "🔄" },
-  { label: "Documentation", path: "/doc", icon: "📚" },
 ];
 
 export default function NavBar({ 

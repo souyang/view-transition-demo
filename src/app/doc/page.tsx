@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
+import NavBar from "../components/NavBar";
 import "./doc.css";
 
 const tabs = [
@@ -164,6 +165,7 @@ export default function DocPage() {
 
   return (
     <div className="doc-page">
+      <NavBar currentPage="doc" />
       <div className="doc-container">
         {/* Header */}
         <header className="doc-header">
